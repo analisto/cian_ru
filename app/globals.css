@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens ─────────────────────────────────── */
+@theme {
+  --color-neon-cyan:   #00f5ff;
+  --color-neon-purple: #bf00ff;
+  --color-neon-pink:   #ff0080;
+  --color-neon-green:  #00ff88;
+  --color-neon-yellow: #ffe600;
+
+  --color-dark-950: #05050a;
+  --color-dark-900: #0a0a12;
+  --color-dark-800: #0f0f1c;
+  --color-dark-700: #14142a;
+  --color-dark-600: #1a1a38;
+  --color-dark-500: #252555;
+  --color-dark-400: #5a5a9a;
+  --color-dark-300: #8888cc;
+}
+
+/* ─── Keyframes ─────────────────────────────────────── */
+@keyframes pop-in {
+  0%   { transform: scale(0) rotate(-20deg); opacity: 0; }
+  70%  { transform: scale(1.15) rotate(4deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes pulse-neon {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(16px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes win-glow {
+  from { box-shadow: 0 0 6px #ffe600, 0 0 14px rgba(255,230,0,0.4); }
+  to   { box-shadow: 0 0 18px #ffe600, 0 0 36px rgba(255,230,0,0.6); }
+}
+
+/* ─── Custom Utilities ──────────────────────────────── */
+@utility glass {
+  background: rgba(10, 10, 20, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+@utility glow-cyan {
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.55), 0 0 24px rgba(0, 245, 255, 0.25);
+}
+
+@utility glow-purple {
+  box-shadow: 0 0 10px rgba(191, 0, 255, 0.55), 0 0 24px rgba(191, 0, 255, 0.25);
+}
+
+@utility glow-yellow {
+  box-shadow: 0 0 10px rgba(255, 230, 0, 0.7), 0 0 24px rgba(255, 230, 0, 0.35);
+}
+
+@utility neon-text-cyan {
+  color: #00f5ff;
+  text-shadow: 0 0 8px #00f5ff, 0 0 18px rgba(0, 245, 255, 0.45);
+}
+
+@utility neon-text-purple {
+  color: #bf00ff;
+  text-shadow: 0 0 8px #bf00ff, 0 0 18px rgba(191, 0, 255, 0.45);
+}
+
+@utility win-cell-glow {
+  animation: win-glow 0.9s ease-in-out infinite alternate;
+}
+
+/* ─── Base ──────────────────────────────────────────── */
+html, body {
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+body {
+  background-color: #0a0a12;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0a0a12; }
+::-webkit-scrollbar-thumb { background: #1a1a38; border-radius: 4px; }
